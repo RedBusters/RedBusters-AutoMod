@@ -27,7 +27,7 @@ jobs:
       run: |
         mkdir ./spigot
         cd ./spigot
-        curl "https://hub.spigotmc.org/jenkins/job/BuildTools/lastStableBuild/artifact/target/BuildTools.jar"
+        curl "https://hub.spigotmc.org/jenkins/job/BuildTools/lastStableBuild/artifact/target/BuildTools.jar" -o BuildTools.jar
       
     - name: Building Spigot
       run: |
