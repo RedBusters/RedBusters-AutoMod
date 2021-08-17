@@ -2,8 +2,9 @@ name: Maven Auto Build
 
 on:
   workflow_dispatch:
-  release:
-    types: [created]
+  push:
+    branches:
+      - Release
 
 jobs:
   build:
