@@ -31,6 +31,7 @@ jobs:
       
     - name: Building Spigot
       run: |
+       cd ./spigot
         java -jar BuildTools.jar --rev 1.12.2
 
     - name: Build with Maven
