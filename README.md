@@ -21,5 +21,7 @@ A Plugin to Help moderators deal with insults,  even when they are Offline !
   ```
 
 # Usage :
+  
+  - Give ```Automod.moderator``` permission to your moderators to enable them to access this plugin
 
    - ```/automod``` This Command show Moderator action Pannel  
