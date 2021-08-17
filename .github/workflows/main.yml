@@ -22,10 +22,21 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
         architecture: x64
-
+      
+    - name: Download Stable Spigot Buildtool
+      run: |
+        mkdir ./spigot
+        cd ./spigot
+        curl "https://hub.spigotmc.org/jenkins/job/BuildTools/lastStableBuild/artifact/target/BuildTools.jar"
+      
+    - name: Building Spigot
+      run: |
+        java -jar BuildTools.jar --rev 1.12.2
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: |
+        cd..
+        mvn -B package --file pom.xml
 
     - name: Configure Git user
       run: |
