@@ -47,8 +47,9 @@ jobs:
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
-        repo_token: ${{ secrets.PAT }}
-        file: ./target/*.*.*.jar
+        repo_token: ${{ secrets.PAT }} 
+        
+        file: ./target/RedBusters-AutoMod-0.0.1-SNAPSHOT.jar
         asset_name: Plugin
         tag: ${{ github.ref }}
         overwrite: true
