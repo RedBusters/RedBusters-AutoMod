@@ -4,12 +4,20 @@
   <artifactId>RedBusters-AutoMod</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+   <properties>
+   		<minecraft.version>1.12.2-R0.1</minecraft.version>
+   		<minecraft_server.version>1.12.2-R0.1</minecraft_server.version>
+   
+   </properties>
+  
   <repositories>
     <!-- This adds the Spigot Maven repository to the build -->
     <repository>
         <id>spigot-repo</id>
         <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
+    
+   
 </repositories>
 
 <dependencies>
@@ -17,10 +25,30 @@
     <dependency>
            <groupId>org.spigotmc</groupId>
            <artifactId>spigot-api</artifactId>
-           <version>1.12.2-R0.1-SNAPSHOT</version>
+           <version>${minecraft.version}-SNAPSHOT</version>
            <scope>provided</scope>
+           
+    </dependency>
+    
+    
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot</artifactId>
+      <version>${minecraft_server.version}-SNAPSHOT</version>
+      <scope>provided</scope>
+      <type>jar</type>
+    </dependency>
+    
+    
+    <dependency>
+	    <groupId>org.bukkit</groupId>
+	    <artifactId>bukkit</artifactId>
+	    <version>${minecraft.version}-SNAPSHOT</version>
+	    <scope>provided</scope>
+	    <type>jar</type>
     </dependency>
 </dependencies>
+
   <distributionManagement>
     <repository>
       <id>github</id>

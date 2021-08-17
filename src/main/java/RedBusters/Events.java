@@ -26,20 +26,20 @@ public class Events implements Listener {
 			 if(!moderators.contains(e.getPlayer().getUniqueId())) {
 				 moderators.add(e.getPlayer().getUniqueId());
 			 }
+			 final Player p = e.getPlayer();
 			 
 			 Bukkit.getScheduler().runTaskLater(ConfigStuff.main, new Runnable() {
-				  @Override
 				  public void run() {
 					  
 					  
 				// no messages?
 					  if(ConfigStuff.get_msgs().isEmpty()) {
-							 e.getPlayer().sendMessage(ConfigStuff.prefix + "No messages containing forbidden word ;)");
+							 p.sendMessage(ConfigStuff.prefix + "No messages containing forbidden word ;)");
 						 } else {
 							 
 						// moderator still in the online moderator list?
-							  if(moderators.contains(e.getPlayer().getUniqueId())) {
-								  Utils.SendInterractiveMessage(e.getPlayer(), ConfigStuff.prefix+" There is "+ ConfigStuff.get_msgs().size()+
+							  if(moderators.contains(p.getUniqueId())) {
+								  Utils.SendInterractiveMessage(p, ConfigStuff.prefix+" There is "+ ConfigStuff.get_msgs().size()+
 										 " Messages containing forbidden words. ", "\n      §8>>> §4Click here to See them §8 <<< ", "Here are the naughty messages ! ", "run_command" , "/automod msgs");				  
 						
 							  }
@@ -68,7 +68,7 @@ public class Events implements Listener {
 		if (!e.getPlayer().hasPermission("automod.moderator")) {
 			
 			String msg = e.getMessage();
-			String Original = e.getMessage();
+			final String Original = e.getMessage();
 			Boolean ContainForbidden = false;
 			
 		// forbidden word check
@@ -98,8 +98,8 @@ public class Events implements Listener {
 			
 		
 		// save those, in case we cancel the event later	
-			Player player = e.getPlayer();
-			String player_name = e.getPlayer().getName();
+			final Player player = e.getPlayer();
+			final String player_name = e.getPlayer().getName();
 			
 		// Hard censor strikes !
 			if(ConfigStuff.hardCensorMode && ContainForbidden ) e.setCancelled(true);
@@ -109,9 +109,8 @@ public class Events implements Listener {
 			if(ConfigStuff.Warning_mode) {
 				
 				Bukkit.getScheduler().runTaskLater(ConfigStuff.main, new Runnable() {
-					  @Override
 					  public void run() {
-						  e.getPlayer().sendMessage(ConfigStuff.Warning);
+						  player.sendMessage(ConfigStuff.Warning);
 					  }
 				}, new Long(1));
 				
@@ -121,7 +120,7 @@ public class Events implements Listener {
 			if(ContainForbidden) {
 				ConfigStuff.add_message(e.getPlayer(), Original);
 				Bukkit.getScheduler().runTaskLater(ConfigStuff.main, new Runnable() {
-					  @Override
+					  
 					  public void run() {
 						 for(UUID moderator : moderators) {
 								
