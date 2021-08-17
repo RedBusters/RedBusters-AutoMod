@@ -111,6 +111,9 @@ public class ConfigStuff {
 			Warning_mode = false;
 			save(config_file);		
 		} 
+		if(!cfg.isSet("sanctions")) {
+			addSanction("ban", "§4ban %player%", "/ban %player%");		
+		} 
 		if(!cfg.isSet("WarningMsg")) {
 			cfg.set("WarningMsg", "§4 Behave in the tchat ! your message has been reported to mods! ");
 			save(config_file);	
