@@ -47,7 +47,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.PAT }}
-        file: ./*.jar
+        file: ./target/*.jar
         asset_name: Plugin
         tag: ${{ github.ref }}
         overwrite: true
