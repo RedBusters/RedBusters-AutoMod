@@ -43,7 +43,12 @@ jobs:
         git config user.email "actions@github.com"
         git config user.name "GitHub Actions"
         
-    - name: Publish JAR
-      run: ./mvnw -B release:prepare release:perform --file pom.xml
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ./*.jar
+        asset_name: Plugin
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "A new Release !"
