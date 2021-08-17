@@ -10,6 +10,12 @@
    
    </properties>
   
+
+	<scm>
+	  <developerConnection>scm:git:https://github.com/RedBusters/RedBusters-AutoMod.git</developerConnection>
+	</scm>
+
+  
   <repositories>
     <!-- This adds the Spigot Maven repository to the build -->
     <repository>
