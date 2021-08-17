@@ -20,9 +20,7 @@ jobs:
       uses: actions/setup-java@v1.4.2
       with:
         java-version: 8                   
-        server-id: github 
-        username: RedBusters
-        password: $GITHUB_TOKEN
+
 
 
     - name: Build with Maven
