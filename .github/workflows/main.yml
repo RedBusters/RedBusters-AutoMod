@@ -42,6 +42,7 @@ jobs:
       run: |
         git config user.email "actions@github.com"
         git config user.name "GitHub Actions"
+        ls ./target/
         
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
