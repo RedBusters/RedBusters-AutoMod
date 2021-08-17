@@ -1,0 +1,24 @@
+main: RedBusters.Main
+# Name can not contain spaces!
+name: RedBusters_AutoMod
+# plugin version
+version: '1.0.0'
+description: Helps Moderators to moderate tchat, Even Offline !
+# for api version make sure its your minecraft version without patches eg: 1.15, 1.14 etc
+api-version: 1.12.2
+author: RedBusters
+
+permissions:
+ automod.moderator:
+  description: Permission for mod, to get messages to check, and get ignored by keyword Detection
+  default: false
+
+commands:
+ automod:
+  description: Main Command for moderators
+  aliases:
+  - am 
+  permission: Automod.moderator
+  
+  
+  
