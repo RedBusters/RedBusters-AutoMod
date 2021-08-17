@@ -36,7 +36,6 @@ jobs:
 
     - name: Build with Maven
       run: |
-        cd..
         mvn -B package --file pom.xml
 
     - name: Configure Git user
