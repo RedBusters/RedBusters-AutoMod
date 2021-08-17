@@ -1,6 +1,7 @@
 name: Maven Auto Build
 
 on:
+  workflow_dispatch:
   release:
     types: [created]
 
