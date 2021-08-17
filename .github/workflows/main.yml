@@ -15,6 +15,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Set up JDK 8
       uses: actions/setup-java@v2
       with:
@@ -27,6 +28,6 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml --DaltDeploymentRepository=releaseRepository::default::https://maven.pkg.github.com/RedBusters/RedBusters-AutoMod
+      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
